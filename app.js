@@ -1,12 +1,13 @@
 const express = require('express');
+const rotascursos = require('./rotas/cursos.js');
+const rotasalunos = require('./rotas/alunos.js');
+
 const app = express();
 
-app.get('/curso', function(req, res) {
-    res.send('<ul><li>web</ul></li><ul><li>banco de dados</ul></li>');
-});
-app.get('/', function(req, res) {
-    res.send('Alunos');
-});
+app.use('/cursos', rotascursos)
+app.use('/alunos', rotasalunos)
+
+
 app.listen(3000, function() {
-    console.log('esta sendo executado na porta 3000')
+    console.log('app de exemplo executando na porta 3000')
 });
